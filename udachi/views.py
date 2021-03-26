@@ -42,17 +42,16 @@ def ostavit_otziv(request):
             # post.save()
             form.save(commit=True)
 
-            mail_title = 'Test Email'
-            message = 'This is a test email.'
-            email = settings.DEFAULT_FROM_EMAIL
-            recipients = ['udachikafe75@gmail.com',]
+            # mail_title = 'Test Email'
+            # message = 'This is a test email.'
+            # email = settings.DEFAULT_FROM_EMAIL
+            # recipients = ['udachikafe75@gmail.com',]
+            #
+            # try:
+            #     send_mail(mail_title, message, email, recipients, settings.EMAIL_HOST_USER,
+            #               settings.EMAIL_HOST_PASSWORD)
+            return render_page_home(request, alert='Успех')
 
-            try:
-                send_mail(mail_title, message, email, recipients, settings.EMAIL_HOST_USER,
-                          settings.EMAIL_HOST_PASSWORD)
-                return render_page_home(request, alert='Успех')
-            except BadHeaderError:
-                return render_page_home(request, alert='Ошибка отправки')
 
 
 
