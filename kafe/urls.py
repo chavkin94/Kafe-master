@@ -18,11 +18,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from udachi.views import render_page_home, render_page_bluda_lv, ostavit_otziv
+from lapa.views import render_page_home, render_page_tovar_lv, ostavit_otziv
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', render_page_home, name='home'),
-    path('bluda/', render_page_bluda_lv, name='bluda_lv'),
+    path('tovar/', render_page_tovar_lv, name='tovar_lv'),
     path('ostavit_otziv/', ostavit_otziv, name='ostavit_otziv'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

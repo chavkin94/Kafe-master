@@ -10,13 +10,13 @@
 
 
     <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"  href="{% static 'udachi/style.css' %}">
+    <link rel="stylesheet"  href="{% static 'lapa/style.css' %}">
 
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="{% static 'udachi/logo.png' %}" height="50px"></a>
+    <a class="navbar-brand" href="#"><img src="{% static 'lapa/logo.png' %}" height="50px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                 <a class="nav-link" href="{% url 'home' %}">Главная</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="{% url 'bluda_lv' %}">Меню</a>
+                <a class="nav-link"  href="{% url 'tovar_lv' %}">Меню</a>
             </li>
              <li class="nav-item">
                 <a class="nav-link" href="#">Контакты</a>
@@ -68,6 +68,6 @@
 
 
 
-<script src="{% static 'udachi/script.js' %}"></script>
+<script src="{% static 'lapa/script.js' %}"></script>
 </body>
 </html>

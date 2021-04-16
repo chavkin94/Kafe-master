@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from udachi.models import Otzivi
+from lapa.models import Otzivi
 
 
 class OstavitOtzivForm(ModelForm):

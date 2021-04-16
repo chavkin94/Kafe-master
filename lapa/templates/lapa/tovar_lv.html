@@ -1,0 +1,36 @@
+{% extends 'lapa/base.html' %}
+
+
+{% load static %}
+{% load thumbnail %}
+
+{% block Content %}
+
+    <div class="container py-5">
+        <div class="row justify-content-center">
+             {% for i_tovar in tovar %}
+
+                                        <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+                                            <div class="card h-100">
+                                                {% if i_tovar.prevyu %}
+                                                    {% thumbnail i_tovar.prevyu 350x350  as image %}
+                                                    <img class="card-img-top" src="/{{ image }}">
+
+
+                                                {% else %}
+                                                    <img class="card-img-top img-fluid" src="{% static 'lapa/logo.png' %}">
+                                                {% endif %}
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{ i_tovar.nazvanie }}</h5>
+                                                    <p class="card-title">{{ i_tovar.opisanie }}</p>
+                                                    <p class="card-text">{{ i_tovar.cena }}</p>
+                                                    <a data-id-tovar="{{ i_tovar.id }}" href="#"
+                                                       class="btn btn-outline-success btn_dobavlenie_v_korzinu">В корзину</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
