@@ -2,18 +2,18 @@
 {% load static %}
 
 {% block Content %}
-     <h1>Basket</h1>
+     <h1>Корзина</h1>
     {% if basket %}
 
     <ul>
-        {% for book in basket %}
+        {% for tovar in tovari %}
         <li>
-            <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+            <a href="#">{{ tovari.id }}</a>
         </li>
         {% endfor %}
     </ul>
     <hr>
     {% else %}
-        <p>There are no books in the basket.</p>
+        <p>Товары добавленные в корзину</p>
     {% endif %}
 {% endblock %}

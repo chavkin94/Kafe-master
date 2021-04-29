@@ -28,7 +28,7 @@
                                 <p class="card-title">{{ i_tovar.opisanie }}</p>
                                 <p class="card-text">{{ i_tovar.cena }}</p>
                                 <a data-id-tovar="{{ i_tovar.id }}" href="#"
-                                   class="btn btn-outline-success btn_dobavlenie_v_korzinu" onclick="dobavlenie_v_korzinu">В корзину</a>
+                                   class="btn btn-outline-success btn_dobavlenie_v_korzinu" onclick="dobavlenie_v_korzinu({{ i_tovar.id }}, 1)">В корзину</a>
                             </div>
                         </div>
                     </div>
