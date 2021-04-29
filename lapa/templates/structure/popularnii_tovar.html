@@ -1,3 +1,5 @@
+{% load static %}
+{% load thumbnail %}
 <div class="col-12"><h2 class="text-center mb-5">Популярные блюда</h2></div>
 
 {% for i_tovar in tovar_iz_topa %}
@@ -9,6 +11,14 @@
 {#            <img class="card-img-top" src="{{ i_tovar.prevyu.url }}">#}
             <div class="card-body">
                 <h5 class="card-title">{{ i_tovar.nazvanie }}</h5>
+                 {% if i_tovar.prevyu %}
+                    {% thumbnail i_tovar.prevyu 350x350  as image %}
+                    <img class="card-img-top" src="/{{ image }}">
+
+
+                {% else %}
+                    <img class="card-img-top img-fluid" src="{% static 'lapa/logo.png' %}">
+                {% endif %}
                 <p class="card-text">{{ i_tovar.cena }}</p>
                 <a href="#" class="btn btn-outline-success">В корзину</a>
             </div>

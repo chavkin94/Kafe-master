@@ -3,6 +3,8 @@ from django.db import models
 
 
 # Create your models here.
+from kafe import settings
+
 
 class TipTovara(models.Model):
     class Meta:
@@ -24,7 +26,7 @@ class Tovar(models.Model):
     opisanie = models.TextField('Описание', null=True, blank=True)
     cena = models.FloatField('Цена', default=0)
     prevyu = models.ImageField('Превью', null=False, blank=False)
-    tip_tovara = models.ForeignKey(TipTovara, verbose_name='Тип товара', on_delete=models.SET_NULL, null=True)
+    tip_tovara = models.ForeignKey(TipTovara, verbose_name='Тип товара', on_delete=models.SET_NULL, related_name='tovari_set', null=True)
     kolvo_dobavlenia_v_korzinu = models.IntegerField('Кол-во раз добавили в корзину', default=0)
 
     def __str__(self):
@@ -101,3 +103,4 @@ class Otzivi(models.Model):
 
     def __str__(self):
         return  f'{self.avtor}: {self.otziv[0:100]}...'
+

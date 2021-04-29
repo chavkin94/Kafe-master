@@ -18,11 +18,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from lapa.views import render_page_home, render_page_tovar_lv, ostavit_otziv
+from lapa.views import render_page_home, render_page_tovar_lv, ostavit_otziv, basket_do
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('tovar/<vid>/', render_page_tovar_lv, name='tovar_lv'),
     path('', render_page_home, name='home'),
-    path('tovar/', render_page_tovar_lv, name='tovar_lv'),
     path('ostavit_otziv/', ostavit_otziv, name='ostavit_otziv'),
+    path('basket/', basket_do, name='basket'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

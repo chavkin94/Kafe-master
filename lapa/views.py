@@ -9,36 +9,31 @@ from lapa.models import Tovar, Otzivi, TipTovara
 
 def render_page_home(request, alert=None):
     tovar_iz_topa = Tovar.objects.order_by('kolvo_dobavlenia_v_korzinu')[0:7]
-
-    otzivi = Otzivi.objects.filter(prosli_moderaziu=True).order_by('data_otziva')
-
-    forma_ostavit_otziv = OstavitOtzivForm()
-
     return render(request, 'lapa/home.html', {
         'tovar_iz_topa': tovar_iz_topa,
-        'otzivi': otzivi,
-        'forma_ostavit_otziv': forma_ostavit_otziv,
         'alert': alert
     })
 
 
-def render_page_tovar_lv(request):
+def render_page_tovar_lv(request, vid):
+
     tovar = Tovar.objects.order_by('kolvo_dobavlenia_v_korzinu')
-    tiptovara = TipTovara.objects.order_by('nazvanie')
-    vid = "Птицы"
-
-
+    tip_tovara = TipTovara.objects.filter(id=vid)
 
 
     return render(request, 'lapa/tovar_lv.html', {
         'tovar': tovar,
-        'tipTovarat': tiptovara,
+        'tip_tovara': tip_tovara,
         'vid': vid
     })
 
 
 def ostavit_otziv(request):
 
+    otzivi = Otzivi.objects.filter(prosli_moderaziu=True).order_by('data_otziva')
+    # otzivi = Otzivi.objects.order_by('data_otziva')
+
+    forma_ostavit_otziv = OstavitOtzivForm()
 
     if request.method == "POST":
         form = OstavitOtzivForm(request.POST)
@@ -57,12 +52,26 @@ def ostavit_otziv(request):
             # try:
             #     send_mail(mail_title, message, email, recipients, settings.EMAIL_HOST_USER,
             #               settings.EMAIL_HOST_PASSWORD)
-            return render_page_home(request, alert='Успех')
+            return render(request,'lapa/ostavit_otziv.html', {
+        'otzivi': otzivi,
+        'forma_ostavit_otziv': forma_ostavit_otziv
+    })
 
 
 
 
         else:
-            return render_page_home(request, alert='Заполняй правильно!')
+            return render(request, 'lapa/ostavit_otziv.html', {
+                'otzivi': otzivi,
+                'forma_ostavit_otziv': forma_ostavit_otziv
+            })
     else:
-        return render_page_home(request, alert='Это не POST!')
+        return render(request, 'lapa/ostavit_otziv.html', {
+            'otzivi': otzivi,
+            'forma_ostavit_otziv': forma_ostavit_otziv
+        })
+
+def basket_do(request, alert = None):
+    return render(request, 'lapa/basket.html', {
+        'alert': alert
+    })

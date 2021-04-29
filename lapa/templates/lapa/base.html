@@ -28,19 +28,25 @@
                 <a class="nav-link" href="{% url 'home' %}">Главная</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link"  href="{% url 'tovar_lv' %}">Меню</a>
+                <a class="nav-link"  href="{% url 'tovar_lv' vid=1 %}">Кошки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="{% url 'tovar_lv' vid=2 %}">Собаки</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link"  href="{% url 'tovar_lv' vid=3 %}">Птицы</a>
             </li>
              <li class="nav-item">
                 <a class="nav-link" href="#">Контакты</a>
             </li>
              <li class="nav-item">
-                <a class="nav-link" href="#">Вопросы и ответы</a>
+                <a class="nav-link" href="{% url 'ostavit_otziv' %}">Вопросы и ответы</a>
             </li>
         </ul>
 
            <form class="form-inline my-2 my-lg-0">
                <div class="text-white "><b>8-924-375-05-73</b> <span class="mx-2">|</span> <span> <b>Смоленка, Рученая 7</b></span> </div>
-      <a class="btn btn-outline-success my-2 my-sm-0 ml-3" href="#"><i class="fa fa-shopping-cart"></i> Корзина</a>
+      <a class="btn btn-outline-success my-2 my-sm-0 ml-3" href="{% url 'basket' %}"><i class="fa fa-shopping-cart"></i> Корзина</a>
     </form>
     </div>
 

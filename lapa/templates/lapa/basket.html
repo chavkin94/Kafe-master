@@ -1,0 +1,19 @@
+{% extends 'lapa/base.html' %}
+{% load static %}
+
+{% block Content %}
+     <h1>Basket</h1>
+    {% if basket %}
+
+    <ul>
+        {% for book in basket %}
+        <li>
+            <a href="{{ book.get_absolute_url }}">{{ book.title }}</a> ({{book.author}})
+        </li>
+        {% endfor %}
+    </ul>
+    <hr>
+    {% else %}
+        <p>There are no books in the basket.</p>
+    {% endif %}
+{% endblock %}
